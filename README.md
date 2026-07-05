@@ -10,10 +10,13 @@ numbering.
 
 ## Status
 
-This template is under development. The first target is a Turkish M.Sc. thesis
-using ITU's APA 7 bibliography setup. Numbered citations, English theses, and
-additional institute/degree combinations are intended to be supported through
-document class options.
+This is an initial working template. It currently targets a Turkish M.Sc. thesis
+using ITU's APA 7 bibliography setup and renders successfully with Quarto and
+TinyTeX. Numbered citations, English theses, and additional institute/degree
+combinations are intended to be supported through document class options.
+
+A rendered sample PDF is available at
+[`examples/itu-thesis-sample.pdf`](examples/itu-thesis-sample.pdf).
 
 ## Official Sources Used
 
@@ -42,6 +45,8 @@ On macOS, a typical setup is:
 brew install --cask mactex
 brew install quarto
 ```
+
+This repository has been tested with Quarto 1.9.38 and TinyTeX 2026.07.
 
 ## Render
 
@@ -111,14 +116,15 @@ clearer than the original upstream fork name, `quarto-thesis`.
 - Keep repository-facing names, comments, and documentation in English.
 - Preserve ITU's official terminology in generated thesis pages.
 - Keep the official class changes minimal and documented.
-- Do not commit generated PDF, HTML, auxiliary LaTeX, or DOCX inspection output.
+- Do not commit generated PDF, HTML, auxiliary LaTeX, or DOCX inspection output,
+  except for the intentionally versioned sample PDF in `examples/`.
 - Test with at least one Turkish M.Sc. thesis and one English thesis before
   marking the template as complete.
 
 ## Relationship to awesome-quarto-thesis
 
-Once this repository renders a sample PDF successfully, it can be proposed for
-the `Jupyter4Science/awesome-quarto-thesis` list under:
+This repository can be proposed for the `Jupyter4Science/awesome-quarto-thesis`
+list under:
 
 ```markdown
 Istanbul Technical University
