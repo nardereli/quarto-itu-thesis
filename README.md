@@ -20,8 +20,12 @@ A rendered sample PDF is available at
 
 ## Official Sources Used
 
-The implementation was prepared from the official ITU materials supplied by the
-user:
+The implementation was prepared from ITU's official graduate thesis materials,
+available from the public ITU Graduate School documents page:
+
+- [ITU Graduate School Documents](https://lee.itu.edu.tr/belgeler)
+
+The thesis writing documents used are:
 
 - ITU Graduate Thesis Writing Guide, DOCX and PDF
 - ITU Graduate Thesis Template, DOCX and PDF
