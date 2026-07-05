@@ -43,3 +43,17 @@ vignettes/*.pdf
 .DS_Store
 */DS_Store
 /.quarto/
+/_book/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.lof
+*.lot

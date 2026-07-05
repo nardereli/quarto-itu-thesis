@@ -1,0 +1,37 @@
+title: itu-thesis
+author: Istanbul Technical University Quarto thesis contributors
+version: 0.1.0
+quarto-required: ">=1.4.0"
+contributes:
+  format:
+    pdf:
+      documentclass: itutez
+      classoption:
+        - onluarkali
+        - turkce
+        - yukseklisans
+        - bez
+        - LisansustuEgitim
+      format-resources:
+        - itutez.cls
+        - itubib.bst
+        - resources/itu-defs.tex
+      template-partials:
+        - partials/title.tex
+        - partials/before-body.tex
+      include-in-header:
+        - partials/in-header.tex
+      toc: false
+      number-sections: true
+      top-level-division: chapter
+      papersize: a4
+      cite-method: biblatex
+      biblatexoptions:
+        - style=apa
+        - backend=biber
+        - sortcites=true
+        - maxnames=20
+        - minnames=1
+        - dashed=false
+      keep-tex: true
+      colorlinks: false

@@ -1,0 +1,51 @@
+\input{resources/itu-defs.tex}
+
+\usepackage{afterpage}
+\usepackage{tocloft}
+\usepackage{atbegshi}
+
+% Match the official ITU Word/LaTeX template's table-of-contents list layout.
+\renewcommand{\cftfigpagefont}{\bfseries}
+\renewcommand{\cfttabpagefont}{\bfseries}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftfigindent}{0pt}
+\renewcommand{\cftfigpresnum}{\bfseries Şekil }
+\setlength{\cftfignumwidth}{5.5em}
+\renewcommand{\cftfigaftersnum}{: }
+\renewcommand{\cftdotsep}{1}
+\setlength{\cfttabindent}{0pt}
+\renewcommand{\cfttabpresnum}{\bfseries Çizelge }
+\setlength{\cfttabnumwidth}{5.5em}
+\renewcommand{\cfttabaftersnum}{: }
+\setlength{\cftchapnumwidth}{1.6em}
+\setlength{\cftsecnumwidth}{1.6em}
+\setlength{\cftsubsecnumwidth}{2.4em}
+\setlength{\cftsubsubsecnumwidth}{3.2em}
+\setlength{\cftpartindent}{0em}
+\setlength{\cftchapindent}{0em}
+\setlength{\cftsecindent}{1.1em}
+\setlength{\cftsubsecindent}{1.9em}
+\setlength{\cftsubsubsecindent}{2.7em}
+\setlength{\cftbeforechapskip}{1.055em}
+\setlength{\cftbeforesecskip}{0.035em}
+\setlength{\cftbeforesubsecskip}{0.035em}
+\renewcommand\cftaftertoctitle{\hfill\null\\\\\null\hfill\bf\underline{Sayfa}}
+\renewcommand\cftafterloftitle{\hfill\null\\\\\\\null\hfill\bf\underline{Sayfa}}
+\renewcommand\cftafterlottitle{\hfill\null\\\\\\\null\hfill\bf\underline{Sayfa}}
+\renewcommand{\cftafterloftitleskip}{10pt}
+\renewcommand{\cftafterlottitleskip}{10pt}
+
+\makeatletter
+\AtBeginDocument{%
+  \@ifpackageloaded{biblatex}{%
+    \setlength\bibitemsep{10pt}%
+    \defbibheading{bibliography}{%
+      \chapter*{\hspace{-1em}\fontsize{12pt}{12pt}\selectfont\textbf{\if@Ingilizce REFERENCES\else KAYNAKLAR\fi}}%
+      \addtocontents{toc}{\protect\addvspace{-10pt}}%
+      \addcontentsline{toc}{chapter}{\bf{\if@Ingilizce REFERENCES\else KAYNAKLAR\fi}}%
+      \fontfamily{ptm}\normalsize\selectfont%
+    }%
+  }{}%
+}
+\makeatother

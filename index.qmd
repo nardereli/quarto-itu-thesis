@@ -1,1 +1,24 @@
-{{< include Chapters/Chapter1.qmd >}}
+# Introduction
+
+This repository is a Quarto thesis template for Istanbul Technical University
+(ITU). It uses ITU's official LaTeX thesis class and maps Quarto metadata to the
+class commands that generate the cover pages, approval page, frontmatter, lists,
+abstracts, and page numbering.
+
+The first chapter should introduce the research question, motivation, scope, and
+main contributions. Add citations with standard Quarto citation syntax, such as
+@apa2020.
+
+## Thesis Objective
+
+State the objective of the thesis here. Keep source files in Markdown or Quarto
+Markdown, and use LaTeX only for the parts that must be controlled by the official
+ITU class.
+
+## Contributions
+
+Summarize the contributions as a short list.
+
+- A reproducible thesis-writing workflow based on Quarto.
+- An ITU-compliant PDF layout provided by the official LaTeX class.
+- A metadata bridge that keeps thesis identity fields in `_quarto.yml`.

@@ -1,76 +1,126 @@
-[![github](https://img.shields.io/github/v/release/nmfs-opensci/quarto-thesis?color=brightgreen&label=GitHub)](https://github.com/nmfs-opensci/quarto-thesis/releases/latest)
+# quarto-itu-thesis
 
-# quarto-thesis
+A Quarto thesis template for Istanbul Technical University (ITU).
 
-Quarto extension for a masters or PhD thesis based on Masters/Doctoral Thesis, LaTeX Template, Version 2.5 (27 Aug 2017). You can play with it on RStudio Cloud without installing anything: https://rstudio.cloud/content/4383755  Go to the Build tab (upper right panel) and click Render Book.
+This repository adapts ITU's official graduate thesis LaTeX template for a
+Quarto-based writing workflow. The goal is to let students write chapters in
+Quarto Markdown while preserving the official ITU PDF layout for cover pages,
+approval pages, frontmatter, abstracts, lists, references, appendices, and page
+numbering.
 
-## Quick Start!
+## Status
 
-* Show me how to download a zip and open in RStudio: [Video](https://youtu.be/33l8GhtUfnU)
-* Show me how to use this repo as a template and then clone to my computer with RStudio: [Video](https://youtu.be/smzNQtogSaI)
-* Show me how to render in Visual Studio Code (see previous videos for how to get the repo onto your computer): [Video](https://youtu.be/IJe3A8-Ee2E)
-* Scroll to the bottom for information on customizing the look of your thesis.
+This template is under development. The first target is a Turkish M.Sc. thesis
+using ITU's APA 7 bibliography setup. Numbered citations, English theses, and
+additional institute/degree combinations are intended to be supported through
+document class options.
 
+## Official Sources Used
 
-## Installing the extension
+The implementation was prepared from the official ITU materials supplied by the
+user:
 
-You will need to do this to get all the folders with tex files. Start in the directory where you will create the directory that will contain your thesis files. Run this from a terminal in that directory.
+- ITU Graduate Thesis Writing Guide, DOCX and PDF
+- ITU Graduate Thesis Template, DOCX and PDF
+- ITU Graduate Thesis LaTeX Template, updated January 2025
+
+The core PDF layout is based on the official `itutez.cls` file from the ITU LaTeX
+template. The DOCX files were used to verify style names, section ordering,
+spacing rules, margin settings, comments, and expected user-editable fields.
+
+## Requirements
+
+Install:
+
+- [Quarto](https://quarto.org)
+- A LaTeX distribution such as TeX Live, MacTeX, or MiKTeX
+- `biber` for APA 7 references
+
+On macOS, a typical setup is:
 
 ```bash
-quarto use template nmfs-opensci/quarto-thesis
+brew install --cask mactex
+brew install quarto
 ```
 
-It will ask for an empty directory name where to put the files, give it a new directory name.
+## Render
 
-Once you do that you can cd to the new directory and render from within the directory.
+From the repository root:
 
 ```bash
 quarto render
 ```
 
-## Installation or updating for an existing document
+The default format is `itu-thesis-pdf`, defined by the extension in
+`_extensions/itu-thesis`.
 
-You may also use this format with an existing Quarto project or document. But you will need to have all the tex folders already (see above).
+## Metadata
 
-```bash
-quarto install extension nmfs-opensci/quarto-thesis
+Fill thesis identity fields in `_quarto.yml` under `itu-thesis`.
+
+Important fields:
+
+- `author.given` and `author.family`
+- `student-id`
+- `title-tr` and `title-en`
+- `department.tr`, `department.en`
+- `program.tr`, `program.en`
+- `advisor` and optional `coadvisor`
+- `committee`
+- `submission-date` and `defense-date`
+- frontmatter file paths such as `abstract-tr`, `abstract-en`, `foreword`, and
+  `cv`
+
+The user-facing metadata names are in English. The generated thesis pages remain
+in the language required by the selected ITU document class option.
+
+## ITU Document Class Options
+
+The official class is configured through `classoption` in `_quarto.yml`.
+
+Default:
+
+```yaml
+format:
+  itu-thesis-pdf:
+    classoption:
+      - onluarkali
+      - turkce
+      - yukseklisans
+      - bez
+      - LisansustuEgitim
 ```
 
-## Usage
+Common options:
 
-### Customizing the look
+- `onluarkali` or `tekyonlu`
+- `turkce` or `ingilizce`
+- `yukseklisans` or `doktora`
+- `bez` or `karton`
+- `bilisim`, `fenbilimleri`, `sosyalbilimler`, `avrasya`, `enerji`, or
+  `LisansustuEgitim`
 
-For a LaTeX document, the class file `MasterDoctoralThesis.cls` in the `_extensions/quarto-thesis` determines the look and LaTeX environments available. To make any changes to the layout, change the MasterDoctoralThesis.cls **in the _extensions folder**. The `MastersDoctoralThesis.cls` file in the main folder will be overwritten by the one in the `_extensions` folder when you re-rerender.  To get info on the MasterDoctoralThesis document class, do a web search for `MasterDoctoralThesis.cls`. You'll find some documentation.
+## Repository Name
 
-### Adding content
+The recommended repository name is `quarto-itu-thesis`. That name matches the
+convention used by other university-specific Quarto thesis extensions and is
+clearer than the original upstream fork name, `quarto-thesis`.
 
-* start adding Chapters in qmd format to the Chapters folder.
-* then add the chapter (or appendix) to the `_quarto.yml` file
+## Notes for Contributors
 
-<img width="305" alt="image" src="https://github.com/nmfs-opensci/quarto-thesis/assets/2545978/3cbd21f5-185f-4930-8699-a623af15fd84">
+- Keep repository-facing names, comments, and documentation in English.
+- Preserve ITU's official terminology in generated thesis pages.
+- Keep the official class changes minimal and documented.
+- Do not commit generated PDF, HTML, auxiliary LaTeX, or DOCX inspection output.
+- Test with at least one Turkish M.Sc. thesis and one English thesis before
+  marking the template as complete.
 
+## Relationship to awesome-quarto-thesis
 
-## Getting and giving help
+Once this repository renders a sample PDF successfully, it can be proposed for
+the `Jupyter4Science/awesome-quarto-thesis` list under:
 
-First try the Discussion link because there may be a solution there. Have a solution to post or want to show how you have used this template? Post to the discussion forum too! You'll find links to other Quarto thesis templates there too.
-
-If you think it's a bug, then definitely post an issue and I'll look into it! 
-
-## Contributors
-
-[![Contributors](https://contrib.rocks/image?repo=nmfs-opensci/quarto-thesis)](https://github.com/nmfs-opensci/quarto-thesis/graphs/contributors)
-
-This template is based on the [Masters/Doctoral Thesis, LaTeX Template, Version 2.5 (27 Aug 2017)](https://www.latextemplates.com/template/masters-doctoral-thesis). Other Quarto thesis examples:
-
-
-## Problems
-
-* All the stuff in Frontmatter is mandatory LaTeX since it is being injected into the tex document after the qmd is processed. Probably need to learn how to write a lua filter to render the Frontmatter qmd to LaTeX via Pandoc.
-
-* I doubt that passing in `classoptions` in your `_quarto.yml` will work. The [elsevier lua filter](https://github.com/quarto-journals/elsevier/blob/main/_extensions/elsevier/elsevier.lua) suggests that the classoptions need to be added on.
-
-* Why does `index-blx.bib` keep appearing?
-
-## Warning. Chapter 1 has R code
-
-Python and Julia users: After you install the extension, search for `{r}` in `Chapters/Chapter1.qmd` and get rid of the R code (for a table and a figure) or replace with Python or Julia code.
+```markdown
+Istanbul Technical University
+- [nardereli/quarto-itu-thesis](https://github.com/nardereli/quarto-itu-thesis)
+```
