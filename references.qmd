@@ -1,1 +1,5 @@
-\printbibliography[heading=bibliography]
+# KAYNAKLAR {.unnumbered}
+
+\printbibliography[heading=none]
+
+\renewcommand{\printbibliography}[1][]{}

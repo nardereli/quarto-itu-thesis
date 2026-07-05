@@ -1,5 +1,22 @@
 \input{itu-defs.tex}
 
+\ifLuaTeX
+  \IfFontExistsTF{Times New Roman}
+    {\setmainfont{Times New Roman}}
+    {\setmainfont{TeX Gyre Termes}}
+  \IfFontExistsTF{STIX Two Math}
+    {\setmathfont{STIX Two Math}}
+    {\IfFontExistsTF{Latin Modern Math}
+      {\setmathfont{Latin Modern Math}}
+      {}}
+  \IfFontExistsTF{Arial}
+    {\setsansfont{Arial}}
+    {\setsansfont{TeX Gyre Heros}}
+  \IfFontExistsTF{Courier New}
+    {\setmonofont{Courier New}}
+    {\setmonofont{TeX Gyre Cursor}}
+\fi
+
 \usepackage{afterpage}
 \usepackage{tocloft}
 \usepackage{atbegshi}
@@ -44,7 +61,7 @@
       \chapter*{\hspace{-1em}\fontsize{12pt}{12pt}\selectfont\textbf{\if@Ingilizce REFERENCES\else KAYNAKLAR\fi}}%
       \addtocontents{toc}{\protect\addvspace{-10pt}}%
       \addcontentsline{toc}{chapter}{\bf{\if@Ingilizce REFERENCES\else KAYNAKLAR\fi}}%
-      \fontfamily{ptm}\normalsize\selectfont%
+      \rmfamily\normalsize\selectfont%
     }%
   }{}%
 }

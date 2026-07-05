@@ -14,6 +14,7 @@ book:
 
 lang: tr
 bibliography: references.bib
+suppress-bibliography: true
 
 execute:
   echo: false

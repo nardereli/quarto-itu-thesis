@@ -340,7 +340,7 @@
 \newcommand*{\th@titleFtSz}{\fontseries{b}\fontsize{12}{12}\selectfont}             %% Title Font Boyutu
 \newcommand*{\th@titleAnaBilimDaliFtSz}{\fontseries{b}\fontsize{12}{12}\selectfont} %% Anabilimdalı Font Boyutu
 \newcommand*{\th@DestekFtSz}{\fontseries{b}\fontsize{12}{12}\selectfont}            %% Destek Font Boyutu
-\newcommand*{\th@HdFnt}{\fontfamily{ptm}\selectfont\bfseries}                       %% Başlıklar Kalın (Bold) olacak
+\newcommand*{\th@HdFnt}{\rmfamily\selectfont\bfseries}                              %% Başlıklar Kalın (Bold) olacak
 \newcommand*{\th@ChSz}{\normalsize\fontsize{12}{12}\selectfont}                     %% Chapter Font Boyutu 
 \newcommand*{\th@ScSz}{\normalsize\fontsize{12}{12}\selectfont}                     %% Section Font Boyutu
 
@@ -582,24 +582,24 @@
 \newcommand*{\th@DoChapCenter}{}
 \newcommand*{\th@ChapHead}[1]{\protect\th@ChapterStyle \protect\th@DoChapCenter #1}
 
-\newcommand*{\chapternameToC}{\fontfamily{ptm}\normalsize\selectfont \if@Ingilizce CHAPTER\else BÖLÜM\fi\normalfont}
-\newcommand*{\contentsnameToC}{\fontfamily{ptm}\normalsize\selectfont \if@Ingilizce TABLE OF CONTENTS\else
+\newcommand*{\chapternameToC}{\rmfamily\normalsize\selectfont \if@Ingilizce CHAPTER\else BÖLÜM\fi\normalfont}
+\newcommand*{\contentsnameToC}{\rmfamily\normalsize\selectfont \if@Ingilizce TABLE OF CONTENTS\else
 İÇİNDEKİLER\fi\normalfont}
-\newcommand*{\listtablenameToC}{\fontfamily{ptm}\normalsize\selectfont \if@Ingilizce LIST OF TABLES\else ÇİZELGE
+\newcommand*{\listtablenameToC}{\rmfamily\normalsize\selectfont \if@Ingilizce LIST OF TABLES\else ÇİZELGE
 LİSTESİ\fi\normalfont}
-\newcommand*{\listfigurenameToC}{\fontfamily{ptm}\normalsize\selectfont \if@Ingilizce LIST OF FIGURES\else ŞEKİL
+\newcommand*{\listfigurenameToC}{\rmfamily\normalsize\selectfont \if@Ingilizce LIST OF FIGURES\else ŞEKİL
 LİSTESİ\fi\normalfont}
-\newcommand*{\abstractnameToC}{\fontfamily{ptm}\normalsize\selectfont SUMMARY\normalfont}
-\newcommand*{\onaynameToC}{\fontfamily{ptm}\normalsize\selectfont KABUL VE ONAY\normalfont}
-\newcommand*{\ozetnameToC}{\fontfamily{ptm}\normalsize\selectfont ÖZET\normalfont}
-\newcommand*{\onsoznameToC}{\fontfamily{ptm}\normalsize\selectfont \if@Ingilizce FOREWORD\else ÖNSÖZ\fi\normalfont}
-\newcommand*{\ozgecmisnameToC}{\fontfamily{ptm}\normalsize\selectfont \if@Ingilizce CURRICULUM VITAE\else
+\newcommand*{\abstractnameToC}{\rmfamily\normalsize\selectfont SUMMARY\normalfont}
+\newcommand*{\onaynameToC}{\rmfamily\normalsize\selectfont KABUL VE ONAY\normalfont}
+\newcommand*{\ozetnameToC}{\rmfamily\normalsize\selectfont ÖZET\normalfont}
+\newcommand*{\onsoznameToC}{\rmfamily\normalsize\selectfont \if@Ingilizce FOREWORD\else ÖNSÖZ\fi\normalfont}
+\newcommand*{\ozgecmisnameToC}{\rmfamily\normalsize\selectfont \if@Ingilizce CURRICULUM VITAE\else
 ÖZGEÇMİŞ\fi\normalfont}
-\newcommand*{\appendixnameToC}{\fontfamily{ptm}\normalsize\selectfont \if@Ingilizce APPENDICES\else EKLER\fi\normalfont}
-\newcommand*{\symbolnameToC}{\fontfamily{ptm}\normalsize\selectfont \if@Ingilizce SYMBOLS\else SEMBOLLER\fi\normalfont}
+\newcommand*{\appendixnameToC}{\rmfamily\normalsize\selectfont \if@Ingilizce APPENDICES\else EKLER\fi\normalfont}
+\newcommand*{\symbolnameToC}{\rmfamily\normalsize\selectfont \if@Ingilizce SYMBOLS\else SEMBOLLER\fi\normalfont}
 
 \newcommand*{\symbolname}{\th@ChapHead{\if@Ingilizce SYMBOLS\else SEMBOLLER\fi}}
-\newcommand*{\kisaltmanameToC}{\fontfamily{ptm}\normalsize\selectfont \if@Ingilizce ABBREVIATIONS\else
+\newcommand*{\kisaltmanameToC}{\rmfamily\normalsize\selectfont \if@Ingilizce ABBREVIATIONS\else
 KISALTMALAR\fi\normalfont}
 \newcommand*{\kisaltmaname}{\th@ChapHead{\if@Ingilizce ABBREVIATIONS\else KISALTMALAR\fi}} 
 
@@ -1547,20 +1547,20 @@ ba\c{s}ar{\i} ile sunmu\c{s}tur.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\th@MakeThesisPrologue}{
         \thispagestyle{empty}
-        \fontfamily{ptm}
+        \rmfamily
         \selectfont
         \setboolean{@twoside}{false} %AKC: Temporarily move to one-sided mode
         \th@Kapak
         \if@Onluarkali
             \setboolean{@twoside}{true} %AKC: Move back to two-sided mode
-        \fontfamily{cmr}
+        \rmfamily
         \selectfont
         \pagenumbering{roman}%
 %        \setcounter{page}{\if@Bez 3\else 1\fi}%{\if@Ingilizce\if@Bez 3\else 1\fi\else 1\fi}
         \setcounter{page}{\if@Ingilizce \if@Onluarkali 5 \else 3 \fi \else 
            \if@Onluarkali 5 \else 3 \fi \fi}
         \singlespacing
-		  \renewcommand{\ttdefault}{pcr} %MS Times fontu için
+		  \renewcommand{\ttdefault}{\rmdefault} % Tez genelinde tek yazı ailesini koru
 		  \normalfont\selectfont	       %MS Times fontu için
          
 
