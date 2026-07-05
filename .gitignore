@@ -57,3 +57,9 @@ vignettes/*.pdf
 *.toc
 *.lof
 *.lot
+/*.tex
+/itubib.bst
+/itutez.cls
+/itu-defs.tex
+
+**/*.quarto_ipynb
