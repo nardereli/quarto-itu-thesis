@@ -1,0 +1,31 @@
+# Method
+
+This chapter verifies a second figure, a second table, and a wide table. Figure
+\ref{fig-wide} represents a wide visual case. @tbl-wide represents a broad data
+case that may require rotated-table behavior.
+
+\begin{figure}
+\centering
+\fbox{\begin{minipage}{0.92\linewidth}
+\centering
+\vspace{1cm}
+Metadata \hfill Markdown \hfill LaTeX \hfill PDF
+\vspace{1cm}
+\end{minipage}}
+\caption{A second long wide-system caption for checking English figure labels, list wrapping, and page-number alignment in the rendered list of figures.}
+\label{fig-wide}
+\end{figure}
+
+| Step | Input | Action | Output |
+|---|---|---|---|
+| 1 | Source files | Quarto render | LaTeX |
+| 2 | LaTeX | LuaLaTeX and Biber | PDF |
+
+: A multi-step render table. {#tbl-render}
+
+| Field | Title | Advisor | Co-advisor | Committee | Bibliography | Appendices |
+|---|---|---|---|---|---|---|
+| State | Long | Long | Present | Five members | BibLaTeX | Present |
+| Expected | No overflow | Legible | Legible | Fits | Clean | Ordered |
+
+: Wide-table fixture data with multiple columns. {#tbl-wide}

@@ -1,0 +1,32 @@
+# Introduction
+
+This fixture verifies English M.Sc. thesis output with a long title, a
+co-advisor, five committee members, list of figures, list of tables, references,
+and appendices. The body cites Figure \ref{fig-flow}, Figure \ref{fig-wide},
+@tbl-small, and @tbl-wide. Bibliography processing is exercised with
+@apa2020 and @quarto2026.
+
+## Objective
+
+The objective is to verify that Quarto-generated content and the official ITU
+frontmatter remain consistent when the `ingilizce` class option is selected.
+
+\begin{figure}
+\centering
+\fbox{\begin{minipage}{0.7\linewidth}
+\centering
+\vspace{1cm}
+Source $\rightarrow$ Render $\rightarrow$ PDF
+\vspace{1cm}
+\end{minipage}}
+\caption{A long process figure caption used to test line wrapping in the list of figures and to confirm that English list labels are emitted for an English thesis.}
+\label{fig-flow}
+\end{figure}
+
+| Measure | Description |
+|---|---|
+| Language | English class option |
+| Degree | Master of Science |
+| Advisor | Long name and co-advisor |
+
+: A compact numbered table for the English fixture. {#tbl-small}

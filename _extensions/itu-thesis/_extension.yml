@@ -6,15 +6,8 @@ contributes:
   format:
     pdf:
       documentclass: itutez
-      classoption:
-        - onluarkali
-        - turkce
-        - yukseklisans
-        - bez
-        - LisansustuEgitim
       format-resources:
         - itutez.cls
-        - itubib.bst
         - resources/itu-defs.tex
       template-partials:
         - partials/title.tex
@@ -33,5 +26,5 @@ contributes:
         - maxnames=20
         - minnames=1
         - dashed=false
-      keep-tex: true
+      keep-tex: false
       colorlinks: false

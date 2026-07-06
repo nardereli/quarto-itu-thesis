@@ -1,0 +1,13 @@
+\eklerkapak{}
+\singlespacing
+\textbf{APPENDIX A:} Supplementary Fixture Material\\
+\eklerbolum{0}
+
+# Supplementary Fixture Material
+
+This appendix contains supplementary fixture content and a small table.
+
+| Appendix field | Value |
+|---|---|
+| Fixture | English M.Sc. |
+| State | Render test |

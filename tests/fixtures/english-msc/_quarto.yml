@@ -1,0 +1,96 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "English M.Sc. Thesis Fixture"
+  author: "John Student SURNAME"
+  chapters:
+    - index.qmd
+    - Chapters/Chapter2.qmd
+    - references.qmd
+  appendices:
+    - Appendices/AppendixA.qmd
+
+lang: en
+bibliography: references.bib
+suppress-bibliography: true
+
+execute:
+  echo: false
+  warning: false
+
+itu-thesis:
+  author:
+    given: "John Student"
+    family: "SURNAME"
+    title: ""
+  student-id: "888888888"
+  title-tr:
+    line-1: "UZUN BASLIKLI INGILIZCE TEZ ICIN"
+    line-2: "TURKCE IC KAPAK BILGISI"
+    line-3: "FIXTURE DOGRULAMASI"
+  title-en:
+    line-1: "VALIDATION OF AN ISTANBUL TECHNICAL UNIVERSITY"
+    line-2: "QUARTO THESIS TEMPLATE WITH A DELIBERATELY"
+    line-3: "LONG MASTER OF SCIENCE TITLE"
+  department:
+    tr: "Bilgisayar Mühendisliği Anabilim Dalı"
+    en: "Department of Computer Engineering"
+  program:
+    tr: "Bilgisayar Mühendisliği Programı"
+    en: "Computer Engineering Programme"
+  defense-month:
+    tr: "TEMMUZ 2026"
+    en: "JULY 2026"
+  defense-month-lower:
+    tr: "Temmuz 2026"
+    en: "July 2026"
+  submission-date:
+    tr: "6 Temmuz 2026"
+    en: "6 July 2026"
+  defense-date:
+    tr: "13 Temmuz 2026"
+    en: "13 July 2026"
+  advisor:
+    name-tr: "Prof. Dr. Very Long Advisor Name SURNAME-WITH-SUFFIX"
+    affiliation-tr: "İstanbul Teknik Üniversitesi"
+    name-en: "Prof. Dr. Very Long Advisor Name SURNAME-WITH-SUFFIX"
+    affiliation-en: "Istanbul Technical University"
+  coadvisor:
+    name-tr: "Doç. Dr. Long Co Advisor Name SURNAME"
+    affiliation-tr: "İstanbul Teknik Üniversitesi"
+    name-en: "Assoc. Prof. Dr. Long Co Advisor Name SURNAME"
+    affiliation-en: "Istanbul Technical University"
+  committee:
+    member-1:
+      name: "Prof. Dr. Committee Member One SURNAME"
+      affiliation: "Istanbul Technical University"
+    member-2:
+      name: "Prof. Dr. Committee Member Two SURNAME"
+      affiliation: "Bogazici University"
+    member-3:
+      name: "Prof. Dr. Committee Member Three SURNAME"
+      affiliation: "Yildiz Technical University"
+    member-4:
+      name: "Prof. Dr. Committee Member Four SURNAME"
+      affiliation: "Middle East Technical University"
+    member-5:
+      name: "Prof. Dr. Committee Member Five SURNAME"
+      affiliation: "Istanbul University"
+  dedication: ""
+  foreword: "Frontmatter/foreword.tex"
+  abbreviations: "Frontmatter/abbreviations.tex"
+  symbols: "Frontmatter/symbols.tex"
+  abstract-tr: "Frontmatter/abstract-tr.tex"
+  abstract-en: "Frontmatter/abstract-en.tex"
+  cv: "Frontmatter/cv.tex"
+
+format:
+  itu-thesis-pdf:
+    classoption:
+      - onluarkali
+      - ingilizce
+      - yukseklisans
+      - bez
+      - LisansustuEgitim

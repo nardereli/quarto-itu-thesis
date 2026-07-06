@@ -1,0 +1,32 @@
+# Giriş
+
+Bu fixture, Türkçe yüksek lisans tez çıktısında uzun başlık, eş danışman, beş
+kişilik jüri, şekil listesi, çizelge listesi, kaynakça ve ek sayfalarının birlikte
+çalıştığını sınamak için hazırlanmıştır. Metin içinde Şekil \ref{fig-flow} ve
+Şekil \ref{fig-wide} ile @tbl-small ve @tbl-wide başvuruları yer alır.
+Kaynak kullanımı @apa2020 ve @quarto2026 ile sınanır.
+
+## Amaç
+
+Amaç, resmi sınıf davranışını değiştirmeden Quarto tarafından üretilen içerik
+ile ITU ön sayfalarının aynı PDF içinde doğru sıralanmasını doğrulamaktır.
+
+\begin{figure}
+\centering
+\fbox{\begin{minipage}{0.7\linewidth}
+\centering
+\vspace{1cm}
+Source $\rightarrow$ Render $\rightarrow$ PDF
+\vspace{1cm}
+\end{minipage}}
+\caption{Uzun açıklamalı süreç şekli; bu başlık şekil listesindeki satır kırılmalarını ve sayfa numarası hizasını sınamak için özellikle normalden daha uzun tutulmuştur.}
+\label{fig-flow}
+\end{figure}
+
+| Ölçüt | Açıklama |
+|---|---|
+| Dil | Türkçe sınıf seçeneği |
+| Derece | Yüksek lisans |
+| Danışman | Uzun ad ve eş danışman |
+
+: Kısa ama numaralı örnek çizelge. {#tbl-small}

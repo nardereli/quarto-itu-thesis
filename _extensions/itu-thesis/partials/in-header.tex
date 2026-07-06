@@ -27,12 +27,18 @@
 \renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
 \setlength{\cftfigindent}{0pt}
-\renewcommand{\cftfigpresnum}{\bfseries Şekil }
+\makeatletter
+% Use the official ITU class language flag so Quarto-added list labels follow
+% the same Turkish/English state as the title pages and frontmatter.
+\renewcommand{\cftfigpresnum}{\bfseries \if@Ingilizce Figure\else Şekil\fi\space}
+\makeatother
 \setlength{\cftfignumwidth}{5.5em}
 \renewcommand{\cftfigaftersnum}{: }
 \renewcommand{\cftdotsep}{1}
 \setlength{\cfttabindent}{0pt}
-\renewcommand{\cfttabpresnum}{\bfseries Çizelge }
+\makeatletter
+\renewcommand{\cfttabpresnum}{\bfseries \if@Ingilizce Table\else Çizelge\fi\space}
+\makeatother
 \setlength{\cfttabnumwidth}{5.5em}
 \renewcommand{\cfttabaftersnum}{: }
 \setlength{\cftchapnumwidth}{1.6em}
@@ -47,9 +53,11 @@
 \setlength{\cftbeforechapskip}{1.055em}
 \setlength{\cftbeforesecskip}{0.035em}
 \setlength{\cftbeforesubsecskip}{0.035em}
-\renewcommand\cftaftertoctitle{\hfill\null\\\\\null\hfill\bf\underline{Sayfa}}
-\renewcommand\cftafterloftitle{\hfill\null\\\\\\\null\hfill\bf\underline{Sayfa}}
-\renewcommand\cftafterlottitle{\hfill\null\\\\\\\null\hfill\bf\underline{Sayfa}}
+\makeatletter
+\renewcommand\cftaftertoctitle{\hfill\null\\\\\null\hfill\bf\underline{\if@Ingilizce Page\else Sayfa\fi}}
+\renewcommand\cftafterloftitle{\hfill\null\\\\\\\null\hfill\bf\underline{\if@Ingilizce Page\else Sayfa\fi}}
+\renewcommand\cftafterlottitle{\hfill\null\\\\\\\null\hfill\bf\underline{\if@Ingilizce Page\else Sayfa\fi}}
+\makeatother
 \renewcommand{\cftafterloftitleskip}{10pt}
 \renewcommand{\cftafterlottitleskip}{10pt}
 
@@ -65,4 +73,10 @@
     }%
   }{}%
 }
+\AddToHook{begindocument/end}{%
+  \def\contentsname{\th@ChapHead{\if@Ingilizce TABLE OF CONTENTS\else İÇİNDEKİLER\fi}}%
+  \def\listfigurename{\th@ChapHead{\if@Ingilizce LIST OF FIGURES\else ŞEKİL LİSTESİ\fi}}%
+  \def\listtablename{\th@ChapHead{\if@Ingilizce LIST OF TABLES\else ÇİZELGE LİSTESİ\fi}}%
+}
+\newcommand{\ituthesisreferencesname}{\if@Ingilizce REFERENCES\else KAYNAKLAR\fi}
 \makeatother

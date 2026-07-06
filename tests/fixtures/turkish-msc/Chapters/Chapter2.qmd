@@ -1,0 +1,31 @@
+# Yöntem
+
+Bu bölüm ikinci şekil, ikinci çizelge ve geniş çizelge kullanımını doğrular.
+Şekil \ref{fig-wide} geniş görsel durumunu, @tbl-wide ise yatay sayfa
+gerektirebilecek geniş veri sunumunu temsil eder.
+
+\begin{figure}
+\centering
+\fbox{\begin{minipage}{0.92\linewidth}
+\centering
+\vspace{1cm}
+Metadata \hfill Markdown \hfill LaTeX \hfill PDF
+\vspace{1cm}
+\end{minipage}}
+\caption{Geniş sistem görünümü için uzun başlıklı ikinci şekil; şekil listesindeki İngilizce etiket sızıntısını ve Türkçe etiketlerin korunmasını kontrol etmek amacıyla kullanılır.}
+\label{fig-wide}
+\end{figure}
+
+| Adım | Girdi | İşlem | Çıktı |
+|---|---|---|---|
+| 1 | Kaynak dosyalar | Quarto render | LaTeX |
+| 2 | LaTeX | LuaLaTeX ve Biber | PDF |
+
+: Çok adımlı render çizelgesi. {#tbl-render}
+
+| Alan | Başlık | Danışman | Eş danışman | Jüri | Kaynakça | Ekler |
+|---|---|---|---|---|---|---|
+| Durum | Uzun | Uzun | Var | Beş üye | BibLaTeX | Var |
+| Beklenti | Taşma yok | Okunur | Okunur | Sığar | Hatasız | Sıralı |
+
+: Geniş çizelge senaryosu için çok sütunlu fixture verisi. {#tbl-wide}

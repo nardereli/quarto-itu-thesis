@@ -44,6 +44,8 @@ vignettes/*.pdf
 */DS_Store
 /.quarto/
 /_book/
+/tmp/
+*.pdf.md
 *.aux
 *.bbl
 *.bcf

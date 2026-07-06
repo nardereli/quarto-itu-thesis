@@ -1,0 +1,13 @@
+\eklerkapak{}
+\singlespacing
+\textbf{EK A:} Ek Fixture Malzemesi\\
+\eklerbolum{0}
+
+# Ek Fixture Malzemesi
+
+Bu ekte ana metni bölmemesi gereken ek açıklama ve küçük bir tablo yer alır.
+
+| Ek alanı | Değer |
+|---|---|
+| Fixture | Türkçe yüksek lisans |
+| Durum | Render testi |

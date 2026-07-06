@@ -17,6 +17,14 @@
 \esdanismani{$if(itu-thesis.coadvisor.name-tr)$$itu-thesis.coadvisor.name-tr$$endif$}{$if(itu-thesis.coadvisor.affiliation-tr)$$itu-thesis.coadvisor.affiliation-tr$$endif$}
 \esdanismaniENG{$if(itu-thesis.coadvisor.name-en)$$itu-thesis.coadvisor.name-en$$endif$}{$if(itu-thesis.coadvisor.affiliation-en)$$itu-thesis.coadvisor.affiliation-en$$endif$}
 
+\makeatletter
+% The official English thesis flow also prints a Turkish inner title page.
+% That page expects these TR aliases, while the public setters above populate
+% the unqualified Turkish metadata names.
+\let\th@TezYoneticisiTR\th@TezYoneticisi
+\let\th@esdanismanTR\th@esdanisman
+\makeatother
+
 \baslik{$if(itu-thesis.title-tr.line-1)$$itu-thesis.title-tr.line-1$$else$$title$$endif$}{$if(itu-thesis.title-tr.line-2)$$itu-thesis.title-tr.line-2$$endif$}{$if(itu-thesis.title-tr.line-3)$$itu-thesis.title-tr.line-3$$endif$}
 \title{$if(itu-thesis.title-en.line-1)$$itu-thesis.title-en.line-1$$else$$title$$endif$}{$if(itu-thesis.title-en.line-2)$$itu-thesis.title-en.line-2$$endif$}{$if(itu-thesis.title-en.line-3)$$itu-thesis.title-en.line-3$$endif$}
 

@@ -2,92 +2,106 @@
 
 A Quarto thesis template for Istanbul Technical University (ITU).
 
-This repository adapts ITU's official graduate thesis LaTeX template for a
-Quarto-based writing workflow. The goal is to let students write chapters in
-Quarto Markdown while preserving the official ITU PDF layout for cover pages,
-approval pages, frontmatter, abstracts, lists, references, appendices, and page
+This repository adapts ITU's official graduate thesis LaTeX class for a Quarto
+book workflow. Students write chapters in Quarto Markdown while the local
+`itu-thesis` extension maps `_quarto.yml` metadata to the official `itutez.cls`
+frontmatter, title pages, lists, abstracts, bibliography, appendices, and page
 numbering.
 
 ## Status
 
-This is an initial working template. It currently targets a Turkish M.Sc. thesis
-using ITU's APA 7 bibliography setup and renders successfully with Quarto and
-TinyTeX. Numbered citations, English theses, and additional institute/degree
-combinations are intended to be supported through document class options.
+This is a public `v0.1.0` template candidate. The tested configurations are:
+
+- Turkish M.Sc. thesis: `turkce`, `yukseklisans`
+- English M.Sc. thesis: `ingilizce`, `yukseklisans`
+
+Other official class options may work, but they are not yet covered by fixtures.
+See [KNOWN_LIMITATIONS.md](KNOWN_LIMITATIONS.md) before using this for final
+submission.
 
 A rendered sample PDF is available at
 [`examples/itu-thesis-sample.pdf`](examples/itu-thesis-sample.pdf).
-
-## Official Sources Used
-
-The implementation was prepared from ITU's official graduate thesis materials,
-available from the public ITU Graduate School documents page:
-
-- [ITU Graduate School Documents](https://lee.itu.edu.tr/belgeler)
-
-The thesis writing documents used are:
-
-- ITU Graduate Thesis Writing Guide, DOCX and PDF
-- ITU Graduate Thesis Template, DOCX and PDF
-- ITU Graduate Thesis LaTeX Template, updated January 2025
-
-The core PDF layout is based on the official `itutez.cls` file from the ITU LaTeX
-template. The DOCX files were used to verify style names, section ordering,
-spacing rules, margin settings, comments, and expected user-editable fields.
 
 ## Requirements
 
 Install:
 
 - [Quarto](https://quarto.org)
-- A LaTeX distribution such as TeX Live, MacTeX, or MiKTeX
-- `biber` for APA 7 references
+- A LaTeX distribution such as TinyTeX, TeX Live, MacTeX, or MiKTeX
+- `biber` for BibLaTeX bibliography processing
 
-On macOS, a typical setup is:
+Tested locally with Quarto 1.9.38 and TinyTeX 2026.07.
+
+### macOS
+
+One straightforward setup is:
+
+```bash
+brew install quarto
+quarto install tinytex
+```
+
+MacTeX also works:
 
 ```bash
 brew install --cask mactex
 brew install quarto
 ```
 
-This repository has been tested with Quarto 1.9.38 and TinyTeX 2026.07.
+### Linux
 
-## Render
-
-From the repository root:
+Install Quarto, TeX Live, and Biber through your distribution packages or use
+TinyTeX:
 
 ```bash
+quarto install tinytex
+```
+
+### Windows
+
+Use Quarto with TinyTeX or MiKTeX. Make sure `biber` is available on `PATH`.
+
+## Create A New Thesis
+
+Quarto starter templates are GitHub repositories copied with `quarto use
+template`; Quarto documents this workflow in its
+[Starter Templates guide](https://quarto.org/docs/extensions/starter-templates.html).
+
+Create a new thesis project with:
+
+```bash
+quarto use template nardereli/quarto-itu-thesis
+```
+
+Then render:
+
+```bash
+cd quarto-itu-thesis
 quarto render
 ```
 
-The default format is `itu-thesis-pdf`, defined by the extension in
-`_extensions/itu-thesis`.
+The repository includes a `.quartoignore` file so tests, docs, generated PDFs,
+and release-maintainer files are not copied into new thesis projects.
 
-## Metadata
+## Fill Metadata
 
-Fill thesis identity fields in `_quarto.yml` under `itu-thesis`.
+Edit `_quarto.yml`, especially the `itu-thesis` block:
 
-Important fields:
-
-- `author.given` and `author.family`
-- `student-id`
+- `author.given`, `author.family`, and `student-id`
 - `title-tr` and `title-en`
 - `department.tr`, `department.en`
 - `program.tr`, `program.en`
+- `defense-month`, `submission-date`, and `defense-date`
 - `advisor` and optional `coadvisor`
-- `committee`
-- `submission-date` and `defense-date`
-- frontmatter file paths such as `abstract-tr`, `abstract-en`, `foreword`, and
-  `cv`
+- `committee.member-1` through `committee.member-5`
+- frontmatter file paths for foreword, abstracts, abbreviations, symbols, and CV
 
-The user-facing metadata names are in English. The generated thesis pages remain
-in the language required by the selected ITU document class option.
+The metadata keys are in English. Generated thesis pages keep ITU terminology
+from the official class.
 
-## ITU Document Class Options
+## Language And Class Options
 
-The official class is configured through `classoption` in `_quarto.yml`.
-
-Default:
+Set ITU class options in `_quarto.yml`:
 
 ```yaml
 format:
@@ -100,37 +114,106 @@ format:
       - LisansustuEgitim
 ```
 
-Common options:
+For an English M.Sc. thesis, use `ingilizce` instead of `turkce`:
 
-- `onluarkali` or `tekyonlu`
-- `turkce` or `ingilizce`
-- `yukseklisans` or `doktora`
-- `bez` or `karton`
-- `bilisim`, `fenbilimleri`, `sosyalbilimler`, `avrasya`, `enerji`, or
-  `LisansustuEgitim`
-
-## Repository Name
-
-The recommended repository name is `quarto-itu-thesis`. That name matches the
-convention used by other university-specific Quarto thesis extensions and is
-clearer than the original upstream fork name, `quarto-thesis`.
-
-## Notes for Contributors
-
-- Keep repository-facing names, comments, and documentation in English.
-- Preserve ITU's official terminology in generated thesis pages.
-- Keep the official class changes minimal and documented.
-- Do not commit generated PDF, HTML, auxiliary LaTeX, or DOCX inspection output,
-  except for the intentionally versioned sample PDF in `examples/`.
-- Test with at least one Turkish M.Sc. thesis and one English thesis before
-  marking the template as complete.
-
-## Relationship to awesome-quarto-thesis
-
-This repository can be proposed for the `Jupyter4Science/awesome-quarto-thesis`
-list under:
-
-```markdown
-Istanbul Technical University
-- [nardereli/quarto-itu-thesis](https://github.com/nardereli/quarto-itu-thesis)
+```yaml
+format:
+  itu-thesis-pdf:
+    classoption:
+      - onluarkali
+      - ingilizce
+      - yukseklisans
+      - bez
+      - LisansustuEgitim
 ```
+
+The extension does not set a default `classoption` list. This avoids Quarto
+merging `turkce` and `ingilizce` together. Keep exactly one language option in
+your project config.
+
+Custom Quarto list labels use the official class language flag, so Turkish mode
+uses labels such as `Şekil`, `Çizelge`, `Sayfa`, and `KAYNAKLAR`; English mode
+uses `Figure`, `Table`, `Page`, and `REFERENCES`.
+
+## Write Content
+
+Add chapters under `Chapters/` and list them in `book.chapters`:
+
+```yaml
+book:
+  chapters:
+    - index.qmd
+    - Chapters/Chapter2.qmd
+    - references.qmd
+```
+
+Add appendices under `Appendices/` and list them in `book.appendices`:
+
+```yaml
+book:
+  appendices:
+    - Appendices/AppendixA.qmd
+```
+
+Use normal Quarto citations, figures, tables, equations, and cross-references.
+
+## Bibliography
+
+This template uses BibLaTeX with Biber:
+
+```yaml
+bibliography: references.bib
+suppress-bibliography: true
+```
+
+The extension configures:
+
+- `cite-method: biblatex`
+- `style=apa`
+- `backend=biber`
+
+`itubib.bst` is not included because it is a BibTeX style file and is not used
+by the current BibLaTeX/Biber workflow. Render inspection showed Biber reading
+`index.bcf` and `references.bib`, with no `\bibliographystyle` or `.bst` usage.
+
+To use Zotero, export a BibLaTeX `.bib` file to `references.bib`, keep citation
+keys stable, and cite entries with Quarto syntax such as `@apa2020`.
+
+## Render
+
+Render the PDF from the project root:
+
+```bash
+quarto render
+```
+
+By default, generated `.tex`, `.aux`, `.log`, `.bcf`, `.run.xml`, and related
+files are cleaned up. To inspect generated LaTeX while debugging:
+
+```bash
+quarto render --debug
+```
+
+Those generated files are ignored by `.gitignore` and should not be committed.
+
+## Test Fixtures
+
+Render the release fixtures:
+
+```bash
+bash tests/scripts/render-fixtures.sh
+```
+
+The fixtures cover Turkish and English M.Sc. theses with long titles, long
+advisor names, co-advisors, five committee members, abstracts, summaries,
+multiple figures, multiple tables, bibliography entries, and appendices.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). Keep repository-facing documentation and
+comments in English, preserve official ITU terminology in generated pages, and
+avoid broad changes to `itutez.cls`.
+
+Do not commit generated build artifacts such as `_book/`, `.quarto/`, `.aux`,
+`.log`, `.bcf`, `.run.xml`, copied root `itutez.cls`, copied root `itu-defs.tex`,
+or copied root `itubib.bst`.
