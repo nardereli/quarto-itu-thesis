@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 - Unreleased
+## 0.1.1 - 2026-07-07
 
 - Localized custom list labels for Turkish and English class modes.
 - Removed unused `itubib.bst` from the BibLaTeX/Biber extension resources.
